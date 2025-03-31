@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="css/fonts.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <title>Catgram</title>
+</head>
+
+<body>
+  <header>
+    <h2 class="logo">Filmagram</h2>
+  </header>
+  <section class="main hidden">
+    <div class="detailedFrame">
+      <div class="detailedContainer">
+        <img src="images/image.png" alt="common films lmage" class="detailedContainer--image animation-up" />
+        <span class="detailedContainer--title animation-down">gallery of the movies from themoviedb API. You may see
+          many movies with images and short description. Sorted by popularity in the descending order
+          <span class="for_ellipsis">.....</span>
+        </span>
+      </div>
+    </div>
+    <ul class="gallery" id="cats_gallery">
+      
+
+    </ul>
+  </section>
+  <section>
+    <form id="query-form" class="input-form">
+      <div class="input-group">
+        <label class="input-label">Year</label>
+        <input required class="input-element" type="number" name="year" placeholder="enter year" min="1870" max="2025">
+      </div>
+      <div class="input-buttons">
+        <button type="submit" class="input-button">Submit</button>
+        <button type="reset" class="input-button">Reset</button>
+      </div>
+             
+      
+
+    </form>
+  </section>
+  <button class="fold-button">next</button>
+  <button class="button-back" onclick="moveToInputData()">back</button>
+  <script src="src/script.js"></script>
+</body>
+
+</html>

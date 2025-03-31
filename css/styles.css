@@ -1,0 +1,349 @@
+body {
+  --width-gallery-image: 12rem;
+  --width-gallery: calc(var(--width-gallery-image) * 2 + var(--width-gallery-image) / 2);
+  --height-gallery-image: 10rem;
+  --background-color-title: aliceblue;
+  --color-title: black;
+  --width-detailed-title: 30ch
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  background: url(../images/dalmatian-spots-mobile.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+h2 {
+  margin: 0;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.detailedFrame {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.detailedContainer {
+  position: relative;
+}
+
+.detailedContainer--image {
+  width: 30rem;
+  height: 25rem;
+  object-fit: cover;
+  clip-path: polygon(30% 0%,
+      70% 0%,
+      100% 30%,
+      100% 70%,
+      70% 100%,
+      30% 100%,
+      0% 70%,
+      0% 30%);
+
+
+}
+
+.animation-down {
+  animation: zoomInDown;
+  animation-duration: 2s;
+}
+
+.animation-up {
+  animation: zoomInUp;
+  animation-duration: 2.5s;
+}
+
+.detailedContainer--title {
+  display: inline-block;
+  width: var(--width-detailed-title);
+  position: absolute;
+  font-size: 2rem;
+  font-family: airstream;
+  bottom: 0.5rem;
+  left: 3rem;
+  background-color: var(--background-color-title);
+  color: var(--color-title);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  font-style: italic;
+
+}
+
+.detailedContainer--title:hover {
+  font-family: airstream;
+  overflow: visible;
+  white-space: initial;
+  text-overflow: initial;
+  font-size: 2rem;
+}
+
+.for_ellipsis:hover {
+  display: none;
+  z-index: -1;
+}
+
+.for_ellipsis {
+  display: block;
+
+}
+
+.gallery--item_image {
+  width: var(--width-gallery-image);
+  height: var(--height-gallery-image);
+  object-fit: cover;
+}
+
+.gallery {
+  list-style: none;
+  max-height: 50vh;
+  width: var(--width-gallery);
+  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-left: calc(16rem - var(--width-gallery-image))
+}
+
+.gallery--item_title {
+  display: block;
+  width: var(--width-gallery-image);
+  height: calc(var(--width-gallery-image) * 0.25);
+  font-size: 1.8rem;
+  font-family: 'Open Sans';
+  font-weight: 600;
+  background-color: var(--background-color-title);
+  color: var(--color-title);
+  text-align: center;
+}
+
+.gallery--item_image {
+  display: block;
+}
+
+.gallery--item {
+  border: 2px solid lightgrey;
+  border-radius: 40px;
+  overflow: hidden;
+  min-width: var(--width-gallery-image);
+  max-height: 15rem;
+  margin-top: 10px;
+}
+
+.logo {
+  font-family: LakeshoreDrive;
+  font-size: 3rem;
+  text-align: center;
+  background-color: azure;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+}
+
+.main.hidden {
+  display: none;
+}
+
+.input-form {
+  display: flex;
+  flex-direction: column;
+  font-size: 3rem;
+  height: 80vh;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.input-form.hidden {
+  display: none;
+}
+
+.input-buttons {
+  margin-top: 5vh;
+  display: flex;
+  justify-content: space-between;
+  width: 15vw;
+
+}
+
+.input-label {
+  margin-right: 2vw;
+}
+
+.input-group {
+  margin-right: 5vw;
+}
+
+.input-button {
+  font-size: 2rem;
+}
+
+.input-element {
+  font-size: 2rem;
+  width: 20vw;
+}
+
+.fold-button {
+
+  font-size: 2rem;
+  margin-top: 5vh;
+  background-color: var(--background-color-title);
+  color: var(--color-title);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.button-back{
+  position: absolute;
+  top: 5rem;
+  right: 0;
+  font-size: 2rem;
+  color: black;
+  border-radius: 10px;
+  padding: 3rem;
+  margin-left: 5vw;
+}
+
+.button-back:hover {
+  background-color: var(--color-title);
+  color: var(--background-color-title);
+  cursor: pointer;
+}
+
+.fold-button:hover {
+  background-color: var(--color-title);
+  color: var(--background-color-title);
+  cursor: pointer;
+}
+.fold-button:active {
+  background-color: var(--color-title);
+  color: var(--background-color-title);
+  cursor: pointer;
+}
+
+.fold-button{  
+  pointer-events: auto;
+  opacity: 1;
+  cursor: pointer;
+  color: black;
+  background-color: rgb(220, 245, 235);
+  font-size: 2rem;
+  border-radius: 10px;  
+  position: relative;
+  margin-left: 15vh;
+  width: 10vw;
+}
+
+
+
+@media screen and (min-width: 500px) {
+
+  .main {
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+  }
+
+  .detailedContainer--title {
+    bottom: 6rem;
+  }
+
+
+  .gallery {
+    max-height: 80vh;
+    width: auto;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    padding-left: 4rem;
+    justify-content: flex-start;
+  }
+
+  .gallery--item {
+    min-width: var(--width-gallery-image);
+    min-height: calc(var(--width-gallery-image) + 1rem);
+    max-height: calc(var(--width-gallery-image) + 1rem);
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  body {
+    --width-gallery-image: 25rem;
+    --width-gallery: calc(var(--width-gallery-image) * 2 + var(--width-gallery-image) / 2);
+    --height-gallery-image: 15rem;
+  }
+
+  body {
+    background: url(../images/dalmatian-spots.svg);
+  }
+
+  .detailedContainer--title:hover {
+
+    font-size: 5rem;
+  }
+
+  .detailedFrame {
+    margin-top: 5rem;
+  }
+
+  .detailedContainer--image {
+    width: 80rem;
+    height: 60rem;
+  }
+
+  .detailedContainer--title {
+    width: calc(var(--width-detailed-title) + 10ch);
+    position: absolute;
+    font-size: 4rem;
+    bottom: 2rem;
+    left: -10rem;
+  }
+
+
+
+
+  .gallery {
+    list-style: none;
+    max-height: 85vh;
+    padding-right: 3rem;
+    margin-left: 4rem;
+  }
+
+  .gallery--item_title {
+    display: block;
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .gallery--item_image {
+    display: block;
+  }
+
+  .gallery--item {
+    min-height: 18rem;
+    max-height: 18rem;
+  }
+
+  .gallery--item:hover {
+    filter: invert(20%) blur(2px);
+  }
+
+  .gallery li:nth-child(1) {
+    margin-top: 0;
+  }
+
+  .logo {
+    font-size: 4rem;
+  }
+}

@@ -1,0 +1,8 @@
+@font-face {
+  font-family: 'LakeshoreDrive';
+  src: url('LakeshoreDrive.woff2') format('woff2'),
+    url('LakeshoreDrive.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
