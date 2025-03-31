@@ -244,7 +244,10 @@ h2 {
   border-radius: 10px;  
   position: relative;
   margin-left: 15vh;
-  width: 10vw;
+  width: 80px;
+    left: 2%;
+    border: black 2px solid;
+    padding: 1rem;
 }
 
 

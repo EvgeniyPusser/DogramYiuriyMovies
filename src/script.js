@@ -81,6 +81,8 @@ formElem.addEventListener("submit", async function (event) {
   event.preventDefault();
   const data = getFormData();
   year = +data.year;
+  page = 1; // Reset page to 1 when a new year is submitted
+  console.log(year); // Debugging output
   await drawGalleryItems();
   mainElem.classList.remove("hidden");
   formElem.classList.add("hidden");
@@ -98,8 +100,7 @@ document
 
     // Now update the detailed image and title with the correct page number
     detailedImage.src = "./images/image.png"; // Reset to placeholder image
-    detailedTitle.innerHTML = 
-       `Page number ${page - 1} from Movie History year ${year} <span class="for_ellipsis">.....</span>`;
+    detailedTitle.innerHTML = `Page number ${page} from Movie History year ${year} <span class="for_ellipsis">.....</span>`;
 
     // Re-trigger animation
     detailedImage.classList.remove("animation-up");
@@ -111,7 +112,6 @@ document
     }, 0);
   });
 
-
 function getFormData() {
   const inputElementsArr = Array.from(inputElements);
   const dataObj = inputElementsArr.reduce(
@@ -120,8 +120,18 @@ function getFormData() {
   );
   return dataObj;
 }
+
+
 function moveToInputData() {
   mainElem.classList.add("hidden");
-  formElem.classList.remove("hidden");  
+  formElem.classList.remove("hidden");
+
+  // 🔹 Reset detailed image and text when going back
+  detailedImage.src = "images/image.png"; // Placeholder image
+  detailedTitle.innerHTML =
+    "gallery of the movies from themoviedb API. You may see many movies with images and short description. Sorted by popularity in the descending order <span class='for_ellipsis'>.....</span>";
+
+  page = 1; // Reset page when going back
 }
+
 
