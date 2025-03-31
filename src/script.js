@@ -85,12 +85,31 @@ formElem.addEventListener("submit", async function (event) {
   mainElem.classList.remove("hidden");
   formElem.classList.add("hidden");
 });
-document.querySelector(".fold-button").addEventListener("click", async function () {
-  console.log("Next button clicked!"); // Debugging output
+// Add event listener to the "Next" button
 
-  page++; // Increment the page number
-  await drawGalleryItems();
-});
+document
+  .querySelector(".fold-button")
+  .addEventListener("click", async function () {
+    console.log("Next button clicked!"); // Debugging output
+
+    page++; // Increment the page number
+
+    await drawGalleryItems(); // Wait for new data to load
+
+    // Now update the detailed image and title with the correct page number
+    detailedImage.src = "./images/image.png"; // Reset to placeholder image
+    detailedTitle.innerHTML = 
+       `Page number ${page - 1} from Movie History year ${year} <span class="for_ellipsis">.....</span>`;
+
+    // Re-trigger animation
+    detailedImage.classList.remove("animation-up");
+    detailedTitle.classList.remove("animation-down");
+
+    setTimeout(() => {
+      detailedImage.classList.add("animation-up");
+      detailedTitle.classList.add("animation-down");
+    }, 0);
+  });
 
 
 function getFormData() {
@@ -103,6 +122,6 @@ function getFormData() {
 }
 function moveToInputData() {
   mainElem.classList.add("hidden");
-  formElem.classList.remove("hidden");
+  formElem.classList.remove("hidden");  
 }
 
