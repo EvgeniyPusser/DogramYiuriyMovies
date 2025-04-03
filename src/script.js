@@ -120,8 +120,6 @@ function getFormData() {
   );
   return dataObj;
 }
-
-
 function moveToInputData() {
   mainElem.classList.add("hidden");
   formElem.classList.remove("hidden");
